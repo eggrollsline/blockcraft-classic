@@ -47,7 +47,22 @@ npm run preview
 
 ## Deployment
 
-The app is a static Vite build. Import the repository into Vercel with the default Vite settings (`npm run build`, output directory `dist`) or deploy `dist/` on any static host.
+### GitHub Pages
+
+The repository includes a GitHub Actions workflow that tests and builds the game, uploads `dist/`, and publishes it to GitHub Pages whenever `main` is updated. The Vite build uses relative asset URLs, so it works both at a project URL such as `https://YOUR-USERNAME.github.io/blockcraft-classic/` and on a custom domain.
+
+After pushing the repository to GitHub:
+
+1. Open **Settings → Pages** in the repository.
+2. Under **Build and deployment**, select **GitHub Actions** as the source.
+3. Push to `main`, or open **Actions → Deploy to GitHub Pages** and select **Run workflow**.
+4. When the workflow completes, open the URL displayed by its `github-pages` deployment.
+
+The workflow requires no deploy token or repository secret; it uses GitHub's short-lived Pages identity token and the minimum required permissions.
+
+### Other static hosts
+
+The app is also a standard static Vite build. Import the repository into Vercel with the default Vite settings (`npm run build`, output directory `dist`) or upload `dist/` to any static host.
 
 ## Privacy and saves
 
